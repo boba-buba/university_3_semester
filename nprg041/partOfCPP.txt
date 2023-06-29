@@ -1,0 +1,50 @@
+K_NUM parser_class::pp(parser::val_t i) {
+			val_t x = 0;
+			std::cout << "i " << i << std::endl;
+			while (next() != EOF)
+			{
+
+				if (isdigit(next()))
+				{
+					while (isdigit(next())) {
+						//std::cout << "next " << next() << std::endl;
+						x = x * 10 + (val_t)next() - 48;
+						//eat();
+						next_char();
+
+					}
+					ex.add_el(x);
+
+					x = 0;
+					//ex.printing();
+				}
+				else if (next()=='x')
+				{
+					ex.add_el(i);
+					std::cout << "next " << next() << std::endl;
+					//std::cout << next() << std::endl;
+					//eat();
+					next_char();
+
+				}
+				else if (next() == '/' || next() == '*' || next() == '+' || next() == '-')
+				{
+					val_t operand = K_BIN(next(), std::move(ex.pop_end()), std::move(ex.pop_end())).eval();
+					ex.add_el(operand);
+					std::cout << next() << std::endl;
+					next_char();
+
+				}
+				else
+				{
+					if (isspace(next())) next_char();
+				}
+			}
+			return ex.result();
+			
+		}
+
+
+
+
+test01.txt -1000000 10000000000
