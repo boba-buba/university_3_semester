@@ -1,0 +1,33 @@
+body {
+	font: 14pt Calibri;
+}
+
+table#cookies {
+	margin-bottom: 30px;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table#cookies td, table#cookies th {
+	border: 1px solid #eee;
+	padding: 8px 16px;
+}
+
+table#cookies th {
+	text-align: left;
+	background-color: #eee;
+}
+
+input {
+	font-size: 14pt;
+}
+
+.error {
+	color: #a00;
+	border: 2px solid #a00;
+	padding: 10px 20px;
+}
+
+.error h2 {
+	margin: 10px 0;
+}

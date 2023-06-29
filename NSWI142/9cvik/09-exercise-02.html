@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <title>Project Normandy V2</title>
+</head>
+<body>
+ <table id="data-table">
+  <tr>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+ </table>
+<script>
+
+// TODO Insert your model class in here.
+class Model {
+
+async listItems() {
+  // TODO Return a promise with a list of 10 objects.
+  // Each object must contain "id" and "title".
+  // "title" can be random string, "id" must be number from 0 to 9.
+  
+
+  return [
+      {"id" : 0, "title": "abc"},
+      {"id" : 1, "title": "abc"},
+      {"id" : 2, "title": "abc"},
+      {"id" : 3, "title": "abc"},
+      {"id" : 4, "title": "abc"},
+      {"id" : 5, "title": "abc"},
+      {"id" : 6, "title": "abc"},
+      {"id" : 7, "title": "abc"},
+      {"id" : 8, "title": "abc"},
+      {"id" : 9, "title": "abc"},
+    ];
+  }
+  
+
+  
+deleteItem(identifier) {
+  // TODO Return a promise that will fail randomly with 50% chance.    
+  // It is not necessary to remove the data from the list. So you 
+  // can ignore the 'identifier' argument.
+  
+    if (Math.random()> 0.5){
+      return Promise.resolve();
+    }
+    else{
+        return Promise.reject();
+    }
+    
+}
+}
+
+
+(function initialize() {
+
+  const model = new Model();
+
+  async function deleteRow(identifier, event) {
+    // TODO Implement the delete operation. 
+    // Call deleteItem method on Model and if successful,
+    // remove the row element from the table. Do not full reload the list.
+    //
+    // BONUS: Add 3 second delay to the deleteItem method.
+    try {
+      await model.deleteItem(identifier);
+      const element = event.target.parentElement.parentElement;
+      element.remove();
+
+
+    }
+    catch(error){
+      console.log("Can't delete data")
+    }
+
+    
+    
+  }
+
+  function addRow(identifier, title) {
+     const titleElement = document.createElement("td");
+     titleElement.textContent = title;
+             
+     const button = document.createElement("button");
+     button.addEventListener("click", (event) => deleteRow(identifier, event));
+     button.textContent = "Remove";
+     
+     const actionElement = document.createElement("td");
+     actionElement.appendChild(button);
+     
+     const rowElement = document.createElement("tr");
+     rowElement.dataset.identifier = identifier;     
+     rowElement.appendChild(titleElement);
+     rowElement.appendChild(actionElement);
+     document.getElementById("data-table").appendChild(rowElement);    
+  }
+  
+  // TODO For each item in the list add a row in the table using 
+  // 'addRow' function.
+
+    model.listItems().then(
+      (items) => items.forEach(([id, title]) => (addRow(id, title))))
+    
+  /*for (let i = 0; i < 10; i++){
+    addRow(i, "abc");
+  }*/
+
+
+})();
+
+</script>
+</body>
+</html>

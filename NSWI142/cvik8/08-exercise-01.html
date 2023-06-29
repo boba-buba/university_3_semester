@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <title>JavaScript example</title>
+  <script>
+	//let k = 0;
+	const employees = [
+      "Philip Fry",
+	  "Turanga Leela",
+	  "Bender ",
+	  "Amy Wong",
+	  "Hermes Conrad",
+	  "Professor Farnsworth",
+	  "Doctor John Zoidberg",
+	  "Lord Nibbler",
+	  "Zapp Brannigan",
+	  "ftgjykhul"
+	];
+	function addingList(e){
+		for (let i = 0; i < e.length; i++){
+			const node = document.createElement("li");
+			const textnode = document.createTextNode(e[i]);
+			node.appendChild(textnode);
+			document.getElementById("content").appendChild(node);
+		}
+	}
+  </script>
+</head>
+<body>
+
+
+<h1>Employees</h1>
+<ul id="content">
+</ul>
+
+<h1>Random link</h1>
+<p><a href="https://github.com/tkohout/OSTRAJava">Ostrajava</a></p>
+
+<h1>Delivery plan</h1>
+
+<table id="plan-table" style="border-spacing:0px; border-collapse:collapse;">
+  <tr>
+    <td>Plan: ___________________</td>
+	<td>Package: ___________________</td>
+	<td>From: ___________________</td>
+	<td>To: ___________________</td>
+  </tr>
+</table>
+
+<script>
+	addingList(employees);
+	
+	
+	const headers = document.getElementsByTagName("h1");
+	for (let i = 0; i < headers.length; i++){
+		headers[i].innerHTML = `${i+1}. `+ headers[i].innerHTML;	
+	}
+
+
+	const row = document.getElementById("plan-table").lastChild;
+
+	for (let i = 0; i < 5; i++){
+		const clone = row.cloneNode(true);
+		document.getElementById("plan-table").appendChild(clone);
+	}
+
+	let link = document.getElementsByTag("a");
+	link.addEventListener('click', function(event) { event.preventDefault(); } )
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS - Menu</title>   
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+
+/*
+ * TODO:
+ * Fix the following CSS so that there are 3 modes based on the screen width:
+ *
+ * First mode is the default:
+ * - menu is shown as text only (hide i elements)
+ * - remove bullets from the list
+ * - set background color of the li in the menu to gray on hover
+ * - add border around li elements and change cursor to a pointer 
+ * 
+ * If screen width > 768 
+ * - the content of the span elements is shown on hover next to the li element
+ * - icon size is 2em
+ *
+ * If screen width > 1200 
+ * - the menu is shown as icons with text.
+ * - set icon width to 1em (to add some space)
+ *
+ */
+
+.menu ul {
+  padding-left: 0;
+}
+
+.menu ul > li {
+  margin: 2em 0;
+  padding: 16px;
+}
+
+.menu ul {
+  padding-left: 0;
+}
+
+@media (max-width: 767px) {
+  .menu ul > li > .fa
+  {
+    display: none;
+  } 
+
+  .menu ul > li:hover{
+    background-color: grey;
+  }
+
+  .menu ul > li {
+    border: 1px solid black;
+  }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1199px) { 
+  .menu ul > li {
+    text-align: center;
+    position: relative; 
+  }
+  .menu ul > li > i {
+    display: initial; 
+    font-size: 2em; 
+  }
+
+  .menu ul > li > span {
+    display: none;
+
+  }
+  .menu ul > li:hover > span {  
+    display: initial; 
+  }
+
+
+}
+
+@media (min-width: 1200px) { 
+  .menu ul > li > i { 
+  width: 1em; 
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="menu" style="max-width: 500px;">
+    <ul>
+      <li>
+      <i class="fa fa-plus"></i>
+      <span>
+        Create new pipeline
+      </span>
+      </li>
+      <li>
+      <i class="fa fa-caret-right"></i>
+      <span>
+        Execute pipeline
+      </span>
+      </li>
+      <li>
+        <i class="fa fa-comment-o"></i>
+      <span>
+        What is a pipeline?
+      </span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

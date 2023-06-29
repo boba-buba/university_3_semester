@@ -1,0 +1,12 @@
+body {
+	font: 14pt Calibri;
+}
+
+input, button, select {
+	font-size: 14pt;
+}
+
+li.completed {
+	color: #666;
+	text-decoration: line-through;
+}

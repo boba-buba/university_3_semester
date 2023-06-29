@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <title>Project Normandy V1</title>
+</head>
+<body>
+ <ul id="log">
+ </ul>
+<script>
+
+class Model {
+
+  async listItems() {
+    // TODO Return a promise with a list of 10 objects.
+    // Each object must contain "id" and "title".
+    // "title" can be random string, "id" must be number from 0 to 9.
+    
+    //promise.then((result) => {return result});
+    return [
+        {"id" : 0, "title": "abc"},
+        {"id" : 1, "title": "abc"},
+        {"id" : 2, "title": "abc"},
+        {"id" : 3, "title": "abc"},
+        {"id" : 4, "title": "abc"},
+        {"id" : 5, "title": "abc"},
+        {"id" : 6, "title": "abc"},
+        {"id" : 7, "title": "abc"},
+        {"id" : 8, "title": "abc"},
+        {"id" : 9, "title": "abc"},
+      ];
+    }
+    
+  
+    
+  deleteItem(identifier) {
+    // TODO Return a promise that will fail randomly with 50% chance.    
+    // It is not necessary to remove the data from the list. So you 
+    // can ignore the 'identifier' argument.
+    
+      if (Math.random()> 0.5){
+        return Promise.resolve();
+      }
+      else{
+          return Promise.reject();
+      }
+      
+  }
+}
+
+class Filter {
+
+    async filter(modelPromise, filterFunction) {
+      // TODO This function takes promise returned Model.listItems
+      // and a filter function. It must return a promise with filtered data.
+      return(await modelPromise.filter(filterFunction));
+
+    }
+
+}
+
+// TESTS DO NOT MODIFY
+
+(async function runTests() {
+
+  function reportSuccess(message) {
+    addLog(message, "green");
+  }
+  
+  function addLog(message, color) {
+    const li = document.createElement("li");
+    li.style.color = color;
+    li.textContent = message;   
+    document.getElementById("log").appendChild(li);
+  }
+  
+  function reportFailure(message)  {
+    addLog(message, "red");
+  }
+  
+  const model = new Model();
+  model.listItems().then((data) => {
+    if (data.length === 10) {
+      reportSuccess("Test 01: Pass");
+    } else {
+      reportFailure(`Test 01: Failed, expected 10 got ${data.length}`);
+    }
+  });
+
+  let passCount = 0;
+  let failCount = 0;
+  for (let index = 0; index < 1000; index++ ) {
+    try {
+      await model.deleteItem(0);
+      passCount += 1;
+    } catch(error)  {
+      failCount += 1;
+    }   
+  }
+  if (passCount > 0 && failCount > 0) {
+    reportSuccess("Test 02: Pass");
+  } else {
+    reportFailure(`Test 02: ${passCount} ${failCount}`);
+  }
+  
+  const filter = new Filter();
+  filter.filter(
+    model.listItems(), 
+    record => record.id % 2
+  ).then((data) => {
+    if (data.length == 5) {
+      reportSuccess("Test 03: Pass");
+    } else {
+      reportFailure(`Test 03: Failed, expected 5 got ${data.length}`);
+    }
+  });
+
+})();
+
+</script>
+
+</body>
+</html>

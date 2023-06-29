@@ -1,0 +1,69 @@
+
+{
+  "start": {
+    "title": "Cesta studenta",
+    "content": "Je začátek semestru, máš :points: bodů.",
+    "actions": [
+      {
+        "title": "Udělat domácí úkoly",
+        "page": "homework-finished"
+      },
+      {
+        "title": "Jdu ke zkoušce",
+        "page": "exam"
+      }
+    ]
+  },
+  "homework-finished": {
+    "title": "Otrava ale ...",
+    "content": "Některé věci není snadné rozhodnout.",
+    "actions": [
+      {
+        "title": "Napsat zpětnou vazbu",
+        "page": "homework-feedback"
+      },
+      {
+        "title": "Jdu ke zkoušce",
+        "page": "exam"
+      }
+    ]
+  },
+  "homework-feedback": {
+    "title": "Feedback",
+    "content": "Potěšil jsi cvičícího/přednášejícího dobrá práce.",
+    "actions": [
+      {
+        "title": "Jdu ke zkoušce",
+        "page": "exam"
+      }
+    ]
+  },
+  "exam": {
+    "title": "Zkouška",
+    "content": "Je tam jen jedna otázka ... kolik je '2' + 1",
+    "actions": [
+        {
+          "title": "21",
+          "page": "retry"
+        },
+        {
+          "title": "3",
+          "page": "retry"
+        },
+        {
+          "title": "Nelze rozhodnout",
+          "page": "success"
+        }
+    ]
+  },
+  "retry": {
+    "title": "Výsledek zkoušky",
+    "content": "Jedním z těch kdo zkoušku neudělal je :name:.",
+    "actions": []
+  },
+  "success": {
+    "title": "Výsledek zkoušky",
+    "content": "Bohužel s :name: už se neuvidíme, neb zkoušku udělal.",
+    "actions": []
+  }
+}

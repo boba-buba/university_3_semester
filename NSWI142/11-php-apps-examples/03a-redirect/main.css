@@ -1,0 +1,48 @@
+body {
+	font: 14pt Calibri;
+}
+
+table#images {
+	margin-bottom: 60px;
+}
+
+table#images tr td:first-of-type {
+	text-align: center;
+}
+
+table#images tr td:last-of-type {
+	vertical-align: top;
+	padding: 10px 40px;
+}
+
+table#images span.tag {
+	display: inline-block;
+	font-size: 18pt;
+	margin-right: 1em;
+}
+
+
+table#images span.tag label {
+	margin-left: 0.3em;
+}
+
+table#images span.tag input {
+	transform: scale(1.5);
+}
+
+#buttons {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 55px;
+	background-color: white;
+	border-top: 1px solid #ccc;
+	text-align: right;
+}
+
+button[type='submit'] {
+	font-size: 18pt;
+	margin: 10px 20px;
+	cursor: pointer;
+}

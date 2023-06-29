@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    font-family: verdana;
+    color: greenyellow;
+    text-align: justify;
+    text-justify: inter-word;
+    
+}
+
+h3 ~ #para2 {
+
+    columns: 2;
+}
+.center{
+    text-align: center;
+
+}
+p {
+    margin: 5px 5px 5px 10px;
+    font-size: 20px; 
+    text-indent: 30px;
+    line-height: 150%;
+}
+#para3 {
+    margin: 5px 5px 5px 10px;
+    font-size: 10px;
+}
+
+h1, h2{
+    border-style: solid;
+    border-color: greenyellow;
+    
+    
+    font-size: 50px;
+}
+h3 {
+    padding-top: 70px;
+    line-height: 100%;
+    font-size: 600%;
+    
+    background-image: url("logo.jpg");
+    
+}
+li:hover{
+    color:white;
+}
+
+.center ~ #para1 ~  p {
+    font-style: italic;
+}
+
+
+a[href^="http"]{
+    color:rgb(2, 142, 7)
+}
+
+a:hover{
+    background-color: greenyellow;
+    color: black;
+}
+
+a:visited {
+    color: red;
+}
+
+
