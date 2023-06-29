@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comment</title>
+</head>
+<body>
+    <h1>Comment</h1>
+    <form method="post" action="http://demo.stools.net">
+        <label for="username">Username: 
+        <input type="text" id="username" name="username" minlength="1" required></label><br/><br/>
+        <label for="email">Email: 
+        <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$"></label><br/>
+        <label for="age">Age: 
+        <input type="number" min="0" id="age" name="age"></label><br/>
+        <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Enter text" required></textarea><br/>
+        
+        <select id="publish" name="publish">
+
+            <option value="public">public</option>
+            <option selected value="private" >private</option>
+        </select>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>
