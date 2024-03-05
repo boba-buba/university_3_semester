@@ -1,3 +1,0 @@
-void const f() is equivilent to const void f(), which means the return type (in this case a void) is const. This is totally meaningless not only because it's a void (there is nothing there that needs a const qualifier), but also because it's a return type (returning something as const doesn't make a whole lot of sense).
-
-void f() const makes the function itself const. This only really has meaning for member functions. Making a member function const means that it cannot call any non-const member functions, nor can it change any member variables. It also means that the function can be called via a const object of the class:
